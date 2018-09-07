@@ -28,7 +28,7 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
-myTerminal = "urxvt"
+myTerminal = "termite"
 myBorderWidth = 3
 myModMask = mod4Mask
 myWorkspaces = ["1:term","2:chrome","3:emacs","4:slack","5","6","7","8","9"]
@@ -77,8 +77,8 @@ myManageHook = composeAll
 
 myEventHook = mempty
 
-myXmonadBar = "dzen2 -x '0' -y '0' -h '35' -w '1900' -ta 'l' -fg '" ++ colorGreyLight2 ++"' -bg '" ++ colorGreyDark3 ++"'"
-myStatusBar = "dzen2 -x '1900' -y '0' -h '35' -w '1400' -ta 'r' -fg '" ++ colorGreyLight2 ++"' -bg '" ++ colorGreyDark3 ++"'"
+myXmonadBar = "dzen2 -x '0' -y '0' -h '35' -w '2400' -ta 'l' -fg '" ++ colorGreyLight2 ++"' -bg '" ++ colorGreyDark3 ++"'"
+myStatusBar = "dzen2 -x '2400' -y '0' -h '35' -w '1400' -ta 'r' -fg '" ++ colorGreyLight2 ++"' -bg '" ++ colorGreyDark3 ++"'"
 
 myLogHook h = dynamicLogWithPP $ defaultPP
     { ppCurrent         = dzenColor colorOrange1 colorGreyDark3 . pad 
@@ -94,7 +94,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP
     
 main = do
      dzenLeftBar <- spawnPipe myXmonadBar
-     spawn $ "conky -c /home/dnardo/.config/conky/conky.config | " ++ myStatusBar
+     spawn $ "conky -c /usr/local/google/home/dnardo/.config/conky/conky.config | " ++ myStatusBar
      xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig {
           modMask = mod4Mask
 	, focusedBorderColor = "#ee9a00"
